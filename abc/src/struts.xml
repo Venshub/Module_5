@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	<struts>
+	<package name="default" extends="struts-default">
+	
+	<action name="loginprocess" class="com.log.Login">  
+	<result name="success"  >/loginsuccess.jsp</result>  
+	<result name="error" >/loginerror.jsp</result>  
+	</action>  
+	
+	<action name="logout" class="com.log.Login" method="logout">  
+	<result name="success" >/login.jsp</result>  
+	</action>  
+	
+	<action name="profile" class="com.log.Profile">  
+	<result name="success" >/profilesuccess.jsp</result>  
+	<result name="error" >/profileerror.jsp</result>  
+	</action>  
+	
+	<action name="report" class="com.regi.ReportAction">
+			<result name="REPORT">/report.jsp</result>
+		</action>
+		<action name="updatedetails" class="com.regi.ReportAction">
+			<result name="REPORT">/update.jsp</result>
+		</action>
+		<action name="updated" class="com.regi.UpdateAction">
+			<result name="REPORT" type="chain">updateAction</result>
+		</action>
+		
+		<action name="updateAction" class="com.regi.ReportAction">
+			<result name="REPORT">/report.jsp</result>
+		</action>
+		<action name="deleterecord" class="com.regi.DeleteAction">
+			<result name="DELETE">/delete.jsp</result>
+		</action>
+		
+		<action name="forget" class="com.regi.ForgotMail">
+			<result name="send" >/forgotpass.jsp</result>
+			<result name="success">/forgotsuccess.jsp</result>
+		</action>
+		
+		
+		<action name="admin" class="com.log.AdminAction">
+			<result name="submit" >/adminlogin.jsp</result>
+			<result name="success">/adminprofile.jsp</result>
+		</action>
+		
+		<action name="Report" class="com.log.AdminReport">
+			<result name="REPORT">/adminreport.jsp</result>
+		</action>
+		
+		<action name="search" class="com.regi.SearchAction">
+			<result name="Report">/searchreport.jsp</result>
+			<result name="success">/searchreport.jsp</result>	
+		</action>
+		
+		<action name="viewdetails" class="com.regi.PublicAction">
+			<result name="REPORT">/searchresult.jsp</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+	
+	<action name="register" class="com.regi.RegiAction">
+	<result name="success">/success.jsp</result>
+	<result name="error">/error.jsp</result>
+	</action>
+	
+	</package>
+
+	</struts>
